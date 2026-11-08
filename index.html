@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7ef">
+  <meta name="description" content="A simple animal puzzle for children aged 2 to 3.">
+  <title>Animal Puzzle</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="anime.min.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <!-- ALL THE SVGS ARE DONE WITH CHATGPT-->
+  <svg id="game" class="game" viewBox="0 0 400 640" role="application"
+       aria-labelledby="game-title" aria-describedby="game-description"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+      <g id="hedgehog">
+        <rect width="300" height="300" fill="#e5eddb"/>
+        <ellipse cx="150" cy="274" rx="98" ry="12" fill="#cdd7bf"/>
+
+        <!-- A soft, rounded outline with a few big quills. -->
+        <path d="M52 249 L32 230 L43 212 L22 198 L40 179
+                 L20 164 L42 148 L27 130 L53 119 L43 98
+                 L69 96 L66 71 L91 77 L101 50 L119 67
+                 L135 37 L150 62 L172 38 L181 67 L208 50
+                 L210 78 L238 69 L231 99 L259 102 L246 125
+                 L274 137 L255 156 L277 175 L254 190
+                 L270 211 L247 223 L252 246 L223 255
+                 Q151 279 77 259 Z"
+              fill="#9b6849" stroke="#784e37" stroke-width="4"
+              stroke-linejoin="round"/>
+        <g fill="none" stroke="#c69368" stroke-width="5" stroke-linecap="round">
+          <path d="M61 143 L49 130 M79 110 L67 97 M106 91 L101 76"/>
+          <path d="M139 83 L136 66 M171 84 L177 67 M200 101 L214 87"/>
+          <path d="M226 128 L241 119 M238 160 L253 153 M242 192 L255 191"/>
+          <path d="M60 180 L43 171 M59 215 L46 211 M231 226 L243 223"/>
+        </g>
+
+        <!-- Body, face and ears. -->
+        <ellipse cx="150" cy="222" rx="65" ry="58" fill="#ddbb87" stroke="#b68c5d" stroke-width="3"/>
+        <ellipse cx="150" cy="229" rx="40" ry="38" fill="#f5dfb6"/>
+        <circle cx="79" cy="127" r="20" fill="#dfbc8c"/>
+        <circle cx="221" cy="127" r="20" fill="#dfbc8c"/>
+        <circle cx="79" cy="127" r="11" fill="#e7b39c"/>
+        <circle cx="221" cy="127" r="11" fill="#e7b39c"/>
+        <path d="M150 103 C114 82 66 106 65 151
+                 C63 191 100 212 150 212
+                 C200 212 237 191 235 151
+                 C234 106 186 82 150 103 Z"
+              fill="#f4dcb1" stroke="#ba9367" stroke-width="3"/>
+        <path d="M144 106 L150 117 L156 106" fill="#dfbc8c"/>
+
+        <!-- Eyes have big white highlights, like the reference. -->
+        <g stroke="#78573e" stroke-width="3">
+          <ellipse cx="111" cy="149" rx="24" ry="28" fill="white"/>
+          <ellipse cx="189" cy="149" rx="24" ry="28" fill="white"/>
+        </g>
+        <g fill="#60a6a0">
+          <ellipse cx="114" cy="154" rx="18" ry="21"/>
+          <ellipse cx="186" cy="154" rx="18" ry="21"/>
+        </g>
+        <g fill="#293c43">
+          <ellipse cx="116" cy="155" rx="12" ry="16"/>
+          <ellipse cx="184" cy="155" rx="12" ry="16"/>
+        </g>
+        <g fill="white">
+          <circle cx="108" cy="143" r="7"/><circle cx="178" cy="143" r="7"/>
+          <circle cx="120" cy="160" r="3"/><circle cx="190" cy="160" r="3"/>
+        </g>
+        <g fill="#eaa395" opacity=".7">
+          <ellipse cx="88" cy="179" rx="14" ry="9"/>
+          <ellipse cx="212" cy="179" rx="14" ry="9"/>
+        </g>
+        <path d="M134 182 Q150 199 166 182 Q166 209 150 209 Q134 209 134 182"
+              fill="#9d514c" stroke="#78573e" stroke-width="2.5"/>
+        <path d="M141 202 Q150 195 159 202 Q150 211 141 202" fill="#e99799"/>
+        <ellipse cx="150" cy="174" rx="17" ry="12" fill="#5d4835"/>
+        <ellipse cx="145" cy="170" rx="6" ry="3" fill="#927353"/>
+
+        <!-- Paws. -->
+        <g fill="#e9cb9e" stroke="#b68c5d" stroke-width="3">
+          <ellipse cx="124" cy="220" rx="17" ry="27" transform="rotate(-27 124 220)"/>
+          <ellipse cx="176" cy="220" rx="17" ry="27" transform="rotate(27 176 220)"/>
+          <ellipse cx="104" cy="261" rx="27" ry="20" transform="rotate(-22 104 261)"/>
+          <ellipse cx="196" cy="261" rx="27" ry="20" transform="rotate(22 196 261)"/>
+        </g>
+        <g fill="#c88f77">
+          <ellipse cx="104" cy="264" rx="13" ry="10" transform="rotate(-22 104 264)"/>
+          <ellipse cx="196" cy="264" rx="13" ry="10" transform="rotate(22 196 264)"/>
+        </g>
+      </g>
+      <g id="fox">
+        <rect width="300" height="300" fill="#e7eddc"/>
+        <ellipse cx="150" cy="275" rx="98" ry="12" fill="#ccd6bd"/>
+        <path d="M202 202 Q283 158 270 232 Q256 276 200 264" fill="#c97742" stroke="#995a38" stroke-width="3"/>
+        <path d="M256 202 Q281 193 267 235 Q263 247 251 254 Q235 231 256 202" fill="#fff0d4"/>
+        <ellipse cx="150" cy="223" rx="60" ry="55" fill="#d98c4e" stroke="#ae693b" stroke-width="3"/>
+        <ellipse cx="150" cy="232" rx="36" ry="38" fill="#fff0d4"/>
+        <path d="M71 128 L56 40 Q100 43 123 92 M177 92 Q200 43 244 40 L229 128" fill="#d98c4e" stroke="#ae693b" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M76 104 L70 59 Q93 63 107 93 M193 93 Q207 63 230 59 L224 104" fill="#e7b098"/>
+        <path d="M150 81 Q218 74 238 144 Q250 203 150 223 Q50 203 62 144 Q82 74 150 81" fill="#df9657" stroke="#ae693b" stroke-width="3"/>
+        <path d="M62 151 Q98 143 150 190 Q202 143 238 151 Q239 204 150 223 Q61 204 62 151" fill="#fff0d4"/>
+        <g fill="white" stroke="#86573c" stroke-width="3">
+          <ellipse cx="108" cy="141" rx="23" ry="27"/><ellipse cx="192" cy="141" rx="23" ry="27"/>
+        </g>
+        <g fill="#638f8d"><ellipse cx="111" cy="146" rx="17" ry="20"/><ellipse cx="189" cy="146" rx="17" ry="20"/></g>
+        <g fill="#293c43"><ellipse cx="112" cy="147" rx="11" ry="15"/><ellipse cx="188" cy="147" rx="11" ry="15"/></g>
+        <g fill="white"><circle cx="105" cy="137" r="6"/><circle cx="181" cy="137" r="6"/></g>
+        <g fill="#e7aa8c"><ellipse cx="85" cy="176" rx="12" ry="8"/><ellipse cx="215" cy="176" rx="12" ry="8"/></g>
+        <path d="M133 194 Q150 211 167 194" fill="none" stroke="#7b5541" stroke-width="3" stroke-linecap="round"/>
+        <path d="M133 182 Q150 174 167 182 Q165 195 150 195 Q135 195 133 182" fill="#56483e"/>
+        <g fill="#d98c4e" stroke="#ae693b" stroke-width="3"><ellipse cx="108" cy="263" rx="27" ry="17"/><ellipse cx="192" cy="263" rx="27" ry="17"/></g>
+        <g fill="#f0c59b"><ellipse cx="108" cy="267" rx="12" ry="7"/><ellipse cx="192" cy="267" rx="12" ry="7"/></g>
+      </g>
+      <g id="bear">
+        <rect width="300" height="300" fill="#e7e5da"/>
+        <ellipse cx="150" cy="275" rx="98" ry="12" fill="#d0ccbe"/>
+        <ellipse cx="150" cy="221" rx="64" ry="57" fill="#b98c65" stroke="#936c4d" stroke-width="3"/>
+        <ellipse cx="150" cy="229" rx="38" ry="39" fill="#ead3ab"/>
+        <g fill="#b98c65" stroke="#936c4d" stroke-width="3"><circle cx="78" cy="83" r="32"/><circle cx="222" cy="83" r="32"/></g>
+        <g fill="#d9ac93"><circle cx="78" cy="83" r="18"/><circle cx="222" cy="83" r="18"/></g>
+        <path d="M150 72 C87 67 59 111 64 159 C66 203 104 218 150 218 C196 218 234 203 236 159 C241 111 213 67 150 72" fill="#c59b73" stroke="#936c4d" stroke-width="3"/>
+        <g fill="white" stroke="#806047" stroke-width="3"><ellipse cx="108" cy="139" rx="23" ry="27"/><ellipse cx="192" cy="139" rx="23" ry="27"/></g>
+        <g fill="#8e9d7e"><ellipse cx="111" cy="144" rx="17" ry="20"/><ellipse cx="189" cy="144" rx="17" ry="20"/></g>
+        <g fill="#343c35"><ellipse cx="113" cy="145" rx="11" ry="15"/><ellipse cx="187" cy="145" rx="11" ry="15"/></g>
+        <g fill="white"><circle cx="105" cy="135" r="6"/><circle cx="179" cy="135" r="6"/></g>
+        <g fill="#dca08b"><ellipse cx="85" cy="176" rx="12" ry="8"/><ellipse cx="215" cy="176" rx="12" ry="8"/></g>
+        <ellipse cx="150" cy="184" rx="39" ry="26" fill="#efdbb8"/>
+        <path d="M134 191 Q150 209 166 191" fill="none" stroke="#7b5942" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="150" cy="177" rx="16" ry="11" fill="#5e4b3d"/>
+        <ellipse cx="145" cy="174" rx="5" ry="2.5" fill="#a28769"/>
+        <g fill="#c59b73" stroke="#936c4d" stroke-width="3"><ellipse cx="105" cy="260" rx="29" ry="21"/><ellipse cx="195" cy="260" rx="29" ry="21"/></g>
+        <g fill="#ddb79b"><ellipse cx="105" cy="263" rx="15" ry="11"/><ellipse cx="195" cy="263" rx="15" ry="11"/></g>
+      </g>
+
+      <clipPath id="board-clip"><rect x="32" y="80" width="336" height="336" rx="14"/></clipPath>
+      <clipPath id="tile-clip"><rect id="tile-mask" x="-56" y="-56" width="112" height="112" rx="8"/></clipPath>
+      <path id="spark-star" d="M0 -19 L5 -6 L19 -6 L8 3 L12 17 L0 9 L-12 17 L-8 3 L-19 -6 L-5 -6 Z"/>
+      <path id="celebration-path" d="M200 66 C305 66 382 66 382 168 L382 324 Q382 430 277 430 L124 430 Q18 430 18 324 L18 170 Q18 66 124 66 Z"/>
+    </defs>
+
+    <g id="board-group" class="decoration">
+      <rect x="20" y="74" width="360" height="360" rx="24" fill="#dfd6c5"/>
+      <rect x="20" y="68" width="360" height="360" rx="24" fill="#ede5d6"/>
+      <g clip-path="url(#board-clip)">
+        <rect x="32" y="80" width="336" height="336" fill="#f6f2e8"/>
+        <svg x="32" y="80" width="336" height="336" viewBox="0 0 300 300">
+          <use id="board-hint" href="#hedgehog" opacity=".28"/>
+        </svg>
+        <g id="placed-tiles"></g>
+        <svg id="finished-picture" x="32" y="80" width="336" height="336" viewBox="0 0 300 300" opacity="0">
+          <use id="finished-animal" href="#hedgehog"/>
+        </svg>
+        <g id="grid"></g>
+      </g>
+      <path id="hint-outline" d="M144 192 H256 V304 H144 Z" fill="none" stroke="#779b7b" stroke-width="4" stroke-linejoin="round" opacity="0"/>
+    </g>
+
+    <g id="tray" class="decoration">
+      <rect x="118" y="458" width="164" height="156" rx="31" fill="#eee8db"/>
+    </g>
+
+    <g id="piece" role="button" aria-label="Puzzle tile" transform="translate(200 536)"></g>
+
+    <g id="next-button" role="button" aria-label="Next animal" opacity="0" pointer-events="none" transform="translate(200 536)">
+      <circle r="48" fill="#829e83"/>
+      <path d="M-16 0 H16 M4 -13 L17 0 L4 13" fill="none" stroke="#fffdf5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <g id="reset-button"
+   role="button"
+   aria-label="Try again: hold for two seconds"
+   transform="translate(350 30)">
+
+  <!-- Large invisible touch area -->
+  <circle r="40" fill="transparent"/>
+
+  <!-- Button background -->
+  <circle r="25" fill="#eee8db"/>
+
+  <!-- Circular retry arrow -->
+  <path
+    d="M12 0 A12 12 0 1 1 8.5 -8.5
+       M2 -8.5 H8.5 V-15"
+    fill="none"
+    stroke="#8e8b79"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+  <!-- Progress ring for the two-second hold -->
+  <circle
+    id="reset-progress"
+    r="22"
+    fill="none"
+    stroke="#719177"
+    stroke-width="3"
+    opacity="0"
+    transform="rotate(-90)"/>
+</g>
+
+    <g id="star-flight" class="decoration" opacity="0">
+      <path id="spark-shape" fill="#d9b66c" stroke="#fff6dc" stroke-width="2"
+            d="M0 -10 A10 10 0 1 1 0 10 A10 10 0 1 1 0 -10 Z"/>
+    </g>
+    <g id="touch-feedback" class="decoration"></g>
+  </svg>
+</body>
+</html>
